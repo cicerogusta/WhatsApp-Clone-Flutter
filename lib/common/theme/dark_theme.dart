@@ -6,7 +6,7 @@ ThemeData darkTheme() {
   final ThemeData base = ThemeData.dark();
   return base.copyWith(
     backgroundColor: Coloors.backgroundDark,
-    scaffoldBackgroundColor: Coloors.backgroundLight,
+    scaffoldBackgroundColor: Coloors.backgroundDark,
     extensions: [
       CustomThemeExtension.darkMode,
     ],
