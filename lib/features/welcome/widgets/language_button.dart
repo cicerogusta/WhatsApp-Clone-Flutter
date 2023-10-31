@@ -22,7 +22,7 @@ class LanguageButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-              const SizedBox(width: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   const SizedBox(width: 20),
