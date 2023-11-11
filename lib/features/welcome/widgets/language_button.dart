@@ -13,6 +13,7 @@ class LanguageButton extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 height: 4,
@@ -27,7 +28,7 @@ class LanguageButton extends StatelessWidget {
                 children: [
                   const SizedBox(width: 20),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     splashColor: Colors.transparent,
                     splashRadius: 22,
                     iconSize: 22,
@@ -51,6 +52,33 @@ class LanguageButton extends StatelessWidget {
               const SizedBox(height: 10),
               Divider(
                 color: context.theme.greyColor!.withOpacity(0.3),
+                thickness: .5,
+              ),
+              RadioListTile(
+                value: true,
+                groupValue: true,
+                onChanged: (value) {},
+                activeColor: Coloors.greenDark,
+                title: const Text('Português(BR)'),
+                subtitle: Text(
+                  "(linguagem do telefone)",
+                  style: TextStyle(
+                    color: context.theme.greyColor,
+                  ),
+                ),
+              ),
+              RadioListTile(
+                value: true,
+                groupValue: false,
+                onChanged: (value) {},
+                activeColor: Coloors.greenDark,
+                title: const Text('English(US)'),
+                subtitle: Text(
+                  '(Estados Unidos)',
+                  style: TextStyle(
+                    color: context.theme.greyColor,
+                  ),
+                ),
               ),
             ],
           ),
