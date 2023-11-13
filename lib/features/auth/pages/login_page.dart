@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_flutter/common/extension/custom_theme_extension.dart';
+import 'package:whatsapp_clone_flutter/common/utils/coloors.dart';
+import 'package:whatsapp_clone_flutter/common/widgets/custom_elevated_button.dart';
+import 'package:whatsapp_clone_flutter/features/auth/widgets/custom_text_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,6 +12,26 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  late TextEditingController countryNameController;
+  late TextEditingController countryCodeController;
+  late TextEditingController phoneNumberController;
+
+  @override
+  void initState() {
+    countryNameController = TextEditingController(text: 'Brasil');
+    countryCodeController = TextEditingController(text: '55');
+    phoneNumberController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    countryNameController.dispose();
+    countryCodeController.dispose();
+    phoneNumberController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +60,84 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ],
       ),
-      
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                text: 'WhatsApp precisa verificar seu número de telefone. ',
+                style: TextStyle(
+                  color: context.theme.greyColor,
+                  height: 1.5,
+                ),
+                children: [
+                  TextSpan(
+                    text: "Qual o meu número de telefone?",
+                    style: TextStyle(
+                      color: context.theme.blueColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            child: CustomTextField(
+              controller: countryNameController,
+              onTap: () {},
+              readOnly: true,
+              suffixIcon: const Icon(
+                Icons.arrow_drop_down,
+                color: Coloors.greenDark,
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 70,
+                  child: CustomTextField(
+                    onTap: () {},
+                    controller: countryCodeController,
+                    prefixText: '+',
+                    readOnly: true,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Expanded(
+                  child: CustomTextField(
+                    onTap: () {},
+                    controller: phoneNumberController,
+                    hintText: 'Número do telefone',
+                    textAlign: TextAlign.left,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Taxas de operadora podem ser cobradas',
+            style: TextStyle(
+              color: context.theme.greyColor,
+            ),
+          ),
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: CustomElevatedButton(
+        onPressed: () {},
+        text: 'Próximo',
+        buttonWidth: 90,
+      ),
     );
   }
 }

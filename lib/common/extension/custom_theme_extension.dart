@@ -33,12 +33,13 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
   );
 
   static const darkMode = CustomThemeExtension(
-      circleImageColor: Coloors.greenDark,
-      greyColor: Coloors.greyDark,
-      blueColor: Coloors.blueDark,
-      langBtnBgColor: Color(0xFF182229),
-      langBtnHighlightColor: Color(0xFF09141A),
-      authAppbarTextColor: Color(0xFFE9EDEF));
+    circleImageColor: Coloors.greenDark,
+    greyColor: Coloors.greyDark,
+    blueColor: Coloors.blueDark,
+    langBtnBgColor: Color(0xFF182229),
+    langBtnHighlightColor: Color(0xFF09141A),
+    authAppbarTextColor: Color(0xFFE9EDEF),
+  );
 
   @override
   ThemeExtension<CustomThemeExtension> copyWith({

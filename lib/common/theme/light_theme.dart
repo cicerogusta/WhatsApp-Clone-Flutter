@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:whatsapp_clone_flutter/common/utils/coloors.dart';
 
 import '../extension/custom_theme_extension.dart';
@@ -11,6 +12,12 @@ ThemeData lightTheme() {
       extensions: [
         CustomThemeExtension.lightMode,
       ],
+      appBarTheme: const AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.light,
+        ),
+      ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           backgroundColor: Coloors.greenLight,
